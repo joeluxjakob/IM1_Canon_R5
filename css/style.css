@@ -7,7 +7,7 @@
 @font-face {
     font-family: "Outfit";
     src: url("../fonts/Outfit-Medium.woff2") format("woff2");
-    font-weight: 600;
+    font-weight: 500;
 }
 @font-face {
     font-family: "Outfit";
@@ -33,15 +33,17 @@
 :root {
     --font-main: "Outfit", sans-serif;
     --font-script: "Caveat", cursive;
-    --color-primary:        #C74A4C;  /* Primärfarbe (Rot) */
-    --color-secondary:      #91D34A;  /* Sekundärfarbe (Grün, Schreibschrift) */
-    --color-text:           #102B3A;  /* Textfarbe */
-    --color-bg:             #F0ECE3;  /* Hintergrundfarbe */
-    --color-box:            #FCFFFF;  /* Boxfarbe (Karten, Nav, Footer) */
-    --color-button-text:    #FFFFFF;  /* Buttonfarbe (Schrift auf rotem Button) */
-    --color-form:           #F7F7F7;  /* Formularfarbe */
-    --color-form-border:    #DEDEDE;  /* Formularfarbe-Kontur */
+    --color-primary: #C74A4C;
+    --color-secondary: #91D34A;
+    --color-text: #102B3A;
+    --color-bg: #F0ECE3;
+    --color-box: #FCFFFF;
+    --color-button-text: #FFFFFF;
+    --color-form: #F7F7F7;
+    --color-form-border: #DEDEDE;
     --global-max-width: 80vw;
+    --hero-size: clamp(5rem, 15vw, 11rem);
+    --box-shadow: 0 4px 24px rgb(16 43 58 / 0.02);
 }
 
 * {
@@ -58,6 +60,8 @@ body {
             var(--color-box) 100%
     );
 }
+
+/* Header */
 
 header {
     min-height: 100vh;
@@ -79,11 +83,11 @@ header {
     background-color: color(from var(--color-box) srgb r g b / 0.7);
     backdrop-filter: blur(16px);
     border-radius: 1rem;
-    box-shadow: 0 4px 24px rgb(16 43 58 / 0.02);
+    box-shadow: var(--box-shadow);
 }
 
 .nav-list {
-    grid-column: 2;          /* mittlere Spalte */
+    grid-column: 2;
     display: flex;
     gap: 2.5rem;
     list-style: none;
@@ -114,6 +118,7 @@ header {
     cursor: pointer;
     justify-self: end;
 }
+
 .btn:hover {
     border: 2px solid var(--color-primary);
     background-color: var(--color-button-text);
@@ -128,9 +133,9 @@ header {
 
 .hero {
     display: grid;
-    justify-items: center;    /* horizontal zentriert */
-    align-content: center;    /* NEU: vertikal zentriert */
-    padding-top: 6rem;        /* Platz für die Nav */
+    justify-items: center;
+    align-content: center;
+    padding-top: 6rem;
     padding-bottom: 2rem;
 }
 
@@ -143,7 +148,7 @@ header {
 }
 
 .hero-title {
-    font-size: clamp(4rem, 14vw, 11rem);
+    font-size: var(--hero-size);
     line-height: 0.9;
 }
 
@@ -162,8 +167,9 @@ header {
     grid-row: 3;
     grid-column: 1;
     align-self: center;
-    z-index: 2;                 /* liegt vor der Kamera */
-    transform: translate(12rem, 3rem) rotate(-10deg);
+    z-index: 2;
+    font-size: calc(var(--hero-size) * 0.32);
+    transform: translate(calc(var(--hero-size) * 1.1), calc(var(--hero-size) * 0.27)) rotate(-10deg);
 }
 
 .hero-visual {
@@ -171,24 +177,105 @@ header {
     grid-column: 1;
     display: grid;
     justify-items: center;
-    margin-top: clamp(-4rem, -9vw, -1rem);  /* negativer Abstand = Überlappung */
+    margin-top: calc(var(--hero-size) * -0.35);
 }
 
 .hero-img {
-    width: 41%;
+    width: calc(var(--hero-size) * 2.95);
+    height: auto;
 }
 
 .shadow-cam {
-    width: 43%;
-    height: 60px;
-    margin-top: -3.5rem;        /* rutscht unter das Kamerabild */
+    width: 100%;
+    height: calc(var(--hero-size) * 0.34);
+    margin-top: calc(var(--hero-size) * -0.32);
+    margin-top: calc(var(--hero-size) * -0.32);
     background: radial-gradient(ellipse at center, rgb(16 43 58 / 0.35) 0%, transparent 70%);
     filter: blur(6px);
 }
 
-p, spec-list, dt, dd {
+/* Body */
+
+main {
+    max-width: var(--global-max-width);
+    margin: 0 auto;
+}
+
+p, .spec-list, dt, dd {
     font-weight: 400;
 }
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.section-header {
+    margin-top: 100px;
+    margin-bottom: 30px;
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .script {
+        margin-top: -0.4em;
+        transform: rotate(-6deg);
+        transform-origin: left center;
+    }
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--color-box);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.specs-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 30px;
+}
+
+.specs-wrapper {
+    margin-top: 2rem;
+}
+
+.specs-card-big {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 30px;
+}
+
+.spec-list {
+    padding-top: 30px;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.spec-row {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    gap: 1rem;
+
+    dt {
+        font-weight: 500;
+    }
+}
+
+#script-margin {
+    padding-top: 8px;
+}
+
+
 
 .polaroid {
     max-width: 20%;
