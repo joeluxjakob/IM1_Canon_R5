@@ -1,0 +1,77 @@
+/* ===== Outfit ===== */
+@font-face {
+    font-family: "Outfit";
+    src: url("../fonts/Outfit-Regular.woff2") format("woff2");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Outfit";
+    src: url("../fonts/Outfit-Medium.woff2") format("woff2");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Outfit";
+    src: url("../fonts/Outfit-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Outfit";
+    src: url("../fonts/Outfit-Black.woff2") format("woff2");
+    font-weight: 900;
+}
+/* ===== Caveat ===== */
+@font-face {
+    font-family: "Caveat";
+    src: url("../fonts/Caveat-Regular.woff2") format("woff2");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Caveat";
+    src: url("../fonts/Caveat-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
+:root {
+    --font-main: "Outfit", sans-serif;
+    --font-script: "Caveat", cursive;
+    --color-primary:        #C74A4C;  /* Primärfarbe (Rot) */
+    --color-secondary:      #91D34A;  /* Sekundärfarbe (Grün, Schreibschrift) */
+    --color-text:           #102B3A;  /* Textfarbe */
+    --color-bg:             #F0ECE3;  /* Hintergrundfarbe */
+    --color-box:            #FCFFFF;  /* Boxfarbe (Karten, Nav, Footer) */
+    --color-button-text:    #FFFFFF;  /* Buttonfarbe (Schrift auf rotem Button) */
+    --color-form:           #F7F7F7;  /* Formularfarbe */
+    --color-form-border:    #DEDEDE;  /* Formularfarbe-Kontur */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(
+            to bottom right,
+            var(--color-bg) 0%,
+            var(--color-box) 100%
+    );
+}
+
+.hero-title, h2, h3 {
+    font-weight: 900;
+}
+
+.title-accent {
+    color: var(--color-primary);
+}
+
+.script {
+    font-family: var(--font-script);
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+p, spec-list, dt, dd {
+    font-weight: 400;
+}
