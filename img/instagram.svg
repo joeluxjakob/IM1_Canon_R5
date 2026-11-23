@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 400">
+  <!-- Generator: Adobe Illustrator 31.0.0, SVG Export Plug-In . SVG Version: 2.1.5 Build 84)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #c74a4c;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 21.75px;
+      }
+    </style>
+  </defs>
+  <rect class="st0" x="14.94" y="14.94" width="370.12" height="370.12" rx="82.15" ry="82.15"/>
+  <circle class="st0" cx="200" cy="200" r="83.6"/>
+  <circle class="st0" cx="317.06" cy="86.88" r="16.12"/>
+</svg>
