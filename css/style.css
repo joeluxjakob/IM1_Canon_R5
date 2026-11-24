@@ -50,6 +50,7 @@
     margin: 0;
     padding: 0;
     font-family: var(--font-main);
+    box-sizing: border-box;
 }
 
 body {
@@ -109,6 +110,7 @@ header {
     color: var(--color-button-text);
     cursor: pointer;
     justify-self: end;
+    text-decoration: none;
 }
 
 .btn:hover {
@@ -313,12 +315,13 @@ h3 {
 
 .ref-gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));  /* beide Spalten exakt gleich breit */
+    width: 100%;                           /* feste Bezugsgrösse, max. 32rem */
     justify-self: center;
 }
 
 .polaroid {
-    width: 80%;
+    max-width: 80%;
     object-fit: cover;
     border: 10px solid white;
     box-shadow: var(--box-shadow);
@@ -331,7 +334,7 @@ h3 {
 
 .polaroid:nth-child(2) {
     rotate: -4deg;
-    translate: -4% 0;
+    translate: -11% 0;
     z-index: 2;
 }
 
@@ -352,7 +355,6 @@ h3 {
     white-space: nowrap;
     margin-top: -4.5rem;
     rotate: -6deg;
-    line-height: 0.9;
 }
 
 /* Footer */
@@ -432,4 +434,29 @@ footer {
     padding-top: 15px;
     border-top: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
     font-size: 0.75rem;
+}
+
+@media (max-width: 1120px) {
+    .specs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 Karten pro Zeile */
+    }
+}
+
+@media (max-width: 800px) {
+    .ref {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .ref:nth-child(even) .ref-card {
+        order: 0;                    /* auf dem Handy immer Text zuerst */
+    }
+    .specs-card-big {
+        grid-template-columns: repeat(1, minmax(0, 1fr)); /* 2 Karten pro Zeile */
+    }
+}
+
+@media (max-width: 640px) {
+    .specs-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr)); /* 2 Karten pro Zeile */
+    }
 }
