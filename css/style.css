@@ -162,14 +162,15 @@ header {
     grid-column: 1;
     align-self: center;
     font-size: calc(var(--hero-size) * 0.32);
-    transform: translate(calc(var(--hero-size) * 1.1), calc(var(--hero-size) * 0.27)) rotate(-10deg);
+    transform: translate(calc(var(--hero-size) * 1.1), calc(var(--hero-size) * -0.03)) rotate(-10deg);
+    z-index: 1;
 }
 
 .hero-visual {
     grid-row: 3;
     grid-column: 1;
     display: grid;
-    margin-top: calc(var(--hero-size) * -0.35);
+    translate: 0 -11%;
 }
 
 .hero-img {
@@ -180,7 +181,7 @@ header {
 .shadow-cam {
     width: 100%;
     height: calc(var(--hero-size) * 0.34);
-    margin-top: calc(var(--hero-size) * -0.32);
+    translate: 0 -100%;
     background: radial-gradient(ellipse at center, rgb(16 43 58 / 0.35) 0%, transparent 70%);
     filter: blur(6px);
 }
@@ -216,7 +217,7 @@ h3 {
     }
 
     .script {
-        margin-top: -0.4em;
+        translate: 0 -27%;
         transform: rotate(-6deg);
         transform-origin: left center;
     }
@@ -440,16 +441,22 @@ footer {
     .specs-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 Karten pro Zeile */
     }
-}
 
-@media (max-width: 800px) {
     .ref {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
+
     .ref:nth-child(even) .ref-card {
         order: 0;                    /* auf dem Handy immer Text zuerst */
     }
+
+    .ref-gallery {
+        width: 70%;
+    }
+}
+
+@media (max-width: 800px) {
     .specs-card-big {
         grid-template-columns: repeat(1, minmax(0, 1fr)); /* 2 Karten pro Zeile */
     }
@@ -458,5 +465,9 @@ footer {
 @media (max-width: 640px) {
     .specs-grid {
         grid-template-columns: repeat(1, minmax(0, 1fr)); /* 2 Karten pro Zeile */
+    }
+
+    .ref-gallery {
+        width: 100%;
     }
 }
